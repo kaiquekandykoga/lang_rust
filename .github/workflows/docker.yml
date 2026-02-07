@@ -1,0 +1,21 @@
+name: Docker
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v5
+    - name: Build Docker image
+      run: docker build -t ci_basic_github_rust .
+    - name: Run tests in Docker
+      run: docker run ci_basic_github_rust cargo test --verbose
