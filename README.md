@@ -1,5 +1,7 @@
 # lang_rust
 
+This is a personal repository for learning and practising Rust
+
 ## nerdctl
 ```
 nerdctl build -t ci-basic-github-rust .
